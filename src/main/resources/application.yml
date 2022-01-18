@@ -1,0 +1,31 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 사용자입력
+            clientSecret: 사용자입력
+            scope: profile,email
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    url: jdbc:h2:~/test;
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  # START session 정보를 DB에 기록
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+  # END session 정보를 DB에 기록
+server:
+  port: 8081
